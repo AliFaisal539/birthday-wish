@@ -2,182 +2,227 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy Birthday 💖</title>
+<title>SKZ BIRTHDAY STAGE 🎤</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Poppins:wght@300;500;700&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background: radial-gradient(circle at top, #ff0033, #000);
+  font-family:Poppins,sans-serif;
+  color:white;
+  overflow-x:hidden;
 }
 
-body {
-  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-  font-family: 'Poppins', sans-serif;
-  color: white;
-  overflow-x: hidden;
+/* Neon glow */
+.glow{
+  text-shadow:0 0 10px #ff0033,0 0 25px #ff0033;
 }
 
-/* Neon Glow */
-.glow {
-  text-shadow: 0 0 10px #ff4fd8, 0 0 20px #ff4fd8;
+/* Spotlight animation */
+.stage-light{
+  position:fixed;
+  top:-50%;
+  left:50%;
+  width:120vw;
+  height:120vh;
+  background:radial-gradient(circle, rgba(255,0,51,0.25), transparent 60%);
+  transform:translateX(-50%);
+  animation:lightMove 6s infinite alternate;
+  z-index:-1;
+}
+@keyframes lightMove{
+  from{transform:translateX(-55%)}
+  to{transform:translateX(-45%)}
 }
 
-/* Floating Hearts */
-.heart {
-  position: fixed;
-  bottom: -10px;
-  font-size: 18px;
-  animation: floatUp 6s linear infinite;
-  opacity: 0.7;
+/* Floating particles */
+.particle{
+  position:fixed;
+  bottom:-20px;
+  font-size:18px;
+  animation:floatUp linear infinite;
+  opacity:0.8;
+}
+@keyframes floatUp{
+  to{transform:translateY(-120vh);opacity:0}
 }
 
-@keyframes floatUp {
-  from { transform: translateY(0); opacity: 1; }
-  to { transform: translateY(-110vh); opacity: 0; }
-}
-
-/* Main Container */
-.container {
-  min-height: 100vh;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+/* Main container */
+.container{
+  min-height:100vh;
+  padding:40px 15px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 
 /* Title */
-h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3rem;
-  margin-bottom: 10px;
+h1{
+  font-family:Orbitron,sans-serif;
+  font-size:3.2rem;
+  margin-bottom:10px;
 }
 
-/* Subtitle */
-.subtitle {
-  font-size: 1.2rem;
-  opacity: 0.9;
-  margin-bottom: 30px;
+/* Name Highlight */
+.name-box{
+  margin:25px 0;
+  padding:20px 30px;
+  border:2px solid #ff0033;
+  border-radius:20px;
+  background:rgba(0,0,0,0.5);
+  box-shadow:0 0 40px rgba(255,0,51,0.9);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+}
+
+.name-box h2{
+  font-size:2.2rem;
+  letter-spacing:2px;
 }
 
 /* Card */
-.card {
-  background: rgba(255,255,255,0.08);
-  border-radius: 20px;
-  padding: 30px;
-  max-width: 700px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 0 30px rgba(255,79,216,0.4);
-  animation: pop 1.5s ease;
+.card{
+  background:rgba(0,0,0,0.55);
+  backdrop-filter:blur(12px);
+  border-radius:25px;
+  padding:30px;
+  max-width:750px;
+  box-shadow:0 0 50px rgba(255,0,51,0.6);
+  animation:fadeIn 1.5s ease;
 }
 
-@keyframes pop {
-  0% { transform: scale(0.7); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
 /* Message */
-.message {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 25px;
+.message{
+  font-size:1.1rem;
+  line-height:1.8;
+  margin-bottom:25px;
+}
+
+/* Lyrics section */
+.lyrics{
+  font-style:italic;
+  color:#ffb3c6;
+  margin:20px 0;
+  border-left:3px solid #ff0033;
+  padding-left:15px;
 }
 
 /* Button */
-button {
-  background: linear-gradient(45deg, #ff4fd8, #7a5cff);
-  border: none;
-  padding: 14px 30px;
-  border-radius: 30px;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  box-shadow: 0 0 20px rgba(255,79,216,0.8);
-  transition: 0.3s;
+button{
+  background:linear-gradient(45deg,#ff0033,#ff4d4d);
+  border:none;
+  padding:14px 34px;
+  border-radius:30px;
+  font-size:1.05rem;
+  color:white;
+  cursor:pointer;
+  box-shadow:0 0 25px rgba(255,0,51,1);
+  transition:.3s;
 }
+button:hover{transform:scale(1.15)}
 
-button:hover {
-  transform: scale(1.1);
+/* Hidden stage */
+.hidden{
+  display:none;
+  margin-top:30px;
+  font-size:1.05rem;
+  animation:reveal 1.5s ease forwards;
 }
-
-/* Hidden Wish */
-.hidden {
-  display: none;
-  margin-top: 25px;
-  font-size: 1.05rem;
-  animation: fadeIn 1.5s ease forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes reveal{
+  from{opacity:0;transform:scale(0.9)}
+  to{opacity:1;transform:scale(1)}
 }
 
 /* Footer */
-footer {
-  margin-top: 30px;
-  font-size: 0.9rem;
-  opacity: 0.7;
+footer{
+  margin-top:35px;
+  font-size:.9rem;
+  opacity:.75;
 }
 </style>
 </head>
 
 <body>
 
+<div class="stage-light"></div>
+
 <div class="container">
-  <h1 class="glow">Happy Birthday ✨</h1>
-  <p class="subtitle">A K-POP Style Surprise Just For You 💿</p>
+
+  <h1 class="glow">BIRTHDAY STAGE OPEN ✨</h1>
+
+  <div class="name-box">
+    <h2 class="glow">🎂 <span id="name">NAWAAL FATIMA</span> 🎂</h2>
+    <p>Teenage Era: END ⛓️ | 20s Era: ACTIVATED 🔥</p>
+  </div>
 
   <div class="card">
-    <h2 class="glow">Dear <span id="name">NAWAAL FATIMA</span> 💖</h2>
 
     <p class="message">
-      Today you turn <b>20</b> —  
-      a beautiful moment where your teenage chapter gently closes  
-      and a brighter, stronger, luckier era begins ✨  
+      You’re stepping into your <b>20s</b> — not just older,  
+      but stronger, bolder, and more unstoppable than ever.  
       <br><br>
-      Your 20s are going to be full of growth, success, smiles, and dreams coming true.  
-      Just like a K-pop comeback —  
-      new energy, new glow, and an unstoppable version of YOU 💫  
+      Your teenage chapter ends here, but trust me —  
+      your best era is just getting its **first comeback** 💿✨
     </p>
 
-    <button onclick="reveal()">Click for Your Special Message 💝</button>
-
-    <div class="hidden" id="surprise">
-      🌸 May your 20s be blessed with happiness, confidence, love,  
-      unforgettable memories, and everything your heart secretly wishes for.  
-      <br><br>
-      Stay shining, stay strong, and keep vibing like your favorite K-pop star 🎤✨  
+    <div class="lyrics">
+      “I know I’m gonna make it someday”  
+      <br>
+      “My pace, my lane, my voice”
     </div>
+
+    <button onclick="openStage()">ENTER YOUR 20s 💥</button>
+
+    <div class="hidden" id="stage">
+      🌹 May your 20s be loud with success, soft with happiness,  
+      fearless with dreams, and blessed beyond expectations.  
+      <br><br>
+      Keep shining. Keep dreaming.  
+      Stay real. Stay powerful. Stay YOU.  
+      <br><br>
+      This era?  
+      <b>It’s yours.</b> 🔥
+    </div>
+
   </div>
 
   <footer>
-    Made with 💖 by <span id="from">HASSAN FAISAL</span>
+    Made with chaos & love by <span id="from">YOUR WELL WISHER</span> 🖤
   </footer>
+
 </div>
 
 <script>
-/* Reveal Message */
-function reveal() {
-  document.getElementById("surprise").style.display = "block";
+/* Reveal Stage */
+function openStage(){
+  document.getElementById("stage").style.display="block";
 }
 
-/* Floating Hearts */
-const hearts = ["💖","💜","✨","💫","💿","🌸"];
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerText = hearts[Math.floor(Math.random()*hearts.length)];
-  heart.style.left = Math.random()*100 + "vw";
-  heart.style.animationDuration = (4 + Math.random()*3) + "s";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 7000);
-}, 500);
+/* Floating particles */
+const icons=["🔥","🖤","✨","🎤","💿","⚡"];
+setInterval(()=>{
+  const p=document.createElement("div");
+  p.className="particle";
+  p.innerText=icons[Math.floor(Math.random()*icons.length)];
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(4+Math.random()*4)+"s";
+  document.body.appendChild(p);
+  setTimeout(()=>p.remove(),8000);
+},400);
 </script>
 
 </body>
